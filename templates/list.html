@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Employee List</title>
+  <style>
+    body{font-family:Arial;padding:20px;background:#f7f7f7;}
+    .wrap{max-width:1000px;margin:auto;}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:6px;overflow:hidden;}
+    th,td{padding:10px;border-bottom:1px solid #eee;text-align:left;}
+    th{background:#0284c7;color:#fff;}
+    tr:nth-child(even){background:#f9fafb;}
+    a.button{display:inline-block;margin:10px 0;padding:8px 12px;background:#0284c7;color:#fff;border-radius:5px;text-decoration:none;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h2>Employee List</h2>
+    <a class="button" href="/">Add New Employee</a>
+    <table>
+      <tr>
+        <th>Sr No</th><th>Name</th><th>DOB</th><th>Email</th><th>Mobile</th><th>Qualification</th><th>Job Stage</th>
+      </tr>
+      {% for e in employees %}
+      <tr>
+        <td>{{ e.sr_no }}</td>
+        <td>{{ e.name }}</td>
+        <td>{{ e.date_of_birth }}</td>
+        <td>{{ e.email }}</td>
+        <td>{{ e.mobile }}</td>
+        <td>{{ e.qualification }}</td>
+        <td>{{ e.job_stage }}</td>
+      </tr>
+      {% endfor %}
+      {% if employees|length == 0 %}
+      <tr><td colspan="7">No records found.</td></tr>
+      {% endif %}
+    </table>
+  </div>
+</body>
+</html>
+

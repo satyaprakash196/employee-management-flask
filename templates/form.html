@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Add Employee</title>
+  <style>
+    body{font-family:Arial;padding:20px;background:#f7f7f7;}
+    .box{max-width:600px;margin:auto;background:#fff;padding:20px;border-radius:8px;box-shadow:0 0 8px rgba(0,0,0,.05);}
+    input, button{width:100%;padding:10px;margin-top:8px;border-radius:5px;border:1px solid #ccc;}
+    button{background:#0284c7;color:#fff;border:none;}
+    .msg{padding:8px;margin-bottom:10px;border-radius:5px;}
+    .success{background:#d1fae5;color:#065f46;}
+    .danger{background:#fee2e2;color:#771111;}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Add Employee</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for cat,msg in messages %}
+          <div class="msg {{ 'success' if cat=='success' else 'danger' }}">{{ msg }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('insert_employee') }}" method="post">
+      <input type="text" name="name" placeholder="Name" required>
+      <label>Date of Birth</label>
+      <input type="date" name="date_of_birth">
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="text" name="mobile" placeholder="Mobile" required>
+      <input type="text" name="qualification" placeholder="Qualification" required>
+      <input type="text" name="job_stage" placeholder="Job Stage" required>
+      <button type="submit">Submit</button>
+    </form>
+
+    <p style="margin-top:12px"><a href="/employees">View Employee List</a></p>
+  </div>
+</body>
+</html>
+
