@@ -32,9 +32,15 @@ flask_employee/
 │── venv/
 │── .gitignore
 
+
+
 Create Virtual Environment
 python3 -m venv venv
 source venv/bin/activate
+Install Updates and Required Packages:
+sudo apt update
+sudo apt upgrade -y
+sudo apt install python3 python3-pip -y
 Install Requirements
 pip install -r requirements.txt
 Configure MySQL Database Login:
