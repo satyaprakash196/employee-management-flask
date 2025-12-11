@@ -40,7 +40,7 @@ pip install -r requirements.txt
 Configure MySQL Database Login:
 mysql -u root -p or sudo mysql
 Create DB:
-CREATE DATABASE test_db;
+CREATE DATABASE test_db;  SHOW DATABASES; USE test_db; SHOW TABLES;
 Create table:
 CREATE TABLE employees (
     sr_no INT PRIMARY KEY AUTO_INCREMENT,
@@ -51,6 +51,9 @@ CREATE TABLE employees (
     qualification VARCHAR(100),
     job_stage VARCHAR(50)
 );
+DESCRIBE employees;
+Table के सभी Data show       
+SELECT * FROM employees;    (mysql -u root -p -e "SELECT * FROM test_db.employees;")
 Run Flask App
 python app.py
 
